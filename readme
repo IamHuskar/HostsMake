@@ -1,2 +1,4 @@
 hosts make for linux and windows
 ui qt 5.+
+将hosts的数据用XML保存。然后通过解析xml分组得到
+数据写入hosts文件。
