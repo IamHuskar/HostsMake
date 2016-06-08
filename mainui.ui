@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainUi</class>
+ <widget class="QWidget" name="MainUi">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>608</width>
+    <height>627</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainUi</string>
+  </property>
+  <widget class="QTreeView" name="HostsTreeView">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>181</width>
+     <height>541</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="NewHostsPushButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>2</y>
+     <width>81</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>新建</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="OpenHostsPushButton">
+   <property name="geometry">
+    <rect>
+     <x>114</x>
+     <y>2</y>
+     <width>81</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </widget>
+  <widget class="QListView" name="DomainlistView">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>70</y>
+     <width>301</width>
+     <height>541</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="SearchDomainLineEdit">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>4</y>
+     <width>300</width>
+     <height>25</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SearchDomainPushButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>2</y>
+     <width>91</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>搜索</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="AddDomainPushButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>70</y>
+     <width>35</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Add</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="DelDomainPushButton">
+   <property name="geometry">
+    <rect>
+     <x>560</x>
+     <y>70</y>
+     <width>35</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Del</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="SaveHostsPushButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>580</y>
+     <width>91</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>保存xml</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="BackUpPushButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>180</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>备份</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="RestorePushButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>220</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>恢复</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="CopyToSystemPushButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>300</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>拷贝到系统</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="TreeItemInfolabel">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>40</y>
+     <width>231</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>info</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="Infolabel">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>40</y>
+     <width>41</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>项信息</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="MKHostsPushButton">
+   <property name="geometry">
+    <rect>
+     <x>510</x>
+     <y>270</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>生成HOSTS</string>
+   </property>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
