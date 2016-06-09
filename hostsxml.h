@@ -46,6 +46,9 @@
 #endif
 
 
+#ifndef LOCAL_IP
+#define LOCAL_IP "127.0.0.1"
+#endif
 
 
 
@@ -123,6 +126,8 @@ private:
     //是否是new的文件
     bool  m_isnewfile;
 
+    //修复linux上 unable to resolve host xxxxxx,通过gethostname 127.0.0.1 增加进去
+    void AddComputerHostName();
 
 
 };

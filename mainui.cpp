@@ -670,7 +670,6 @@ void MainUi::TreeViewRightClick(const QPoint & pos)
 
 
     AddOrDel_IpOrGroup(&rcinfo);
-
 }
 
 //清理掉所有UI相关的资源。相当于从头再来
@@ -777,6 +776,21 @@ bool MainUi::OpenOrNewFile(bool openfromfile,QString FileName)
     {
         FreeCurrentUiRes();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return bret;
 }

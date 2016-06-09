@@ -1,6 +1,13 @@
 ﻿#include "hostsxml.h"
 #include "util.h"
 
+#ifdef _WIN32
+#include <Winsock2.h>
+#include <windows.h>
+#else
+#include <unistd.h>
+#endif
+
 HostsXml::HostsXml()
 {
    Close();
@@ -11,48 +18,6 @@ HostsXml::~HostsXml()
     Close();
 }
 
-bool HostsXml::Open(QString& fileName)
-{
-    Close();
-    m_modified=false;
-    m_isnewfile=false;
-    m_isopen=true;
-    m_filename=fileName;
-    bool bret=false;
-    do
-    {
-        QFile File(fileName);
-        if(!File.open(QIODevice::ReadWrite))
-        {
-            LOGFATAL("can't open file to read");
-            break;
-        }
-        if(File.size()>=MAX_XML_FILESIZE)
-        {
-            LOGFATAL("File.size()>=MAX_XML_FILESIZE");
-            break;
-        }
-        if(!m_doc.setContent(&File))
-        {
-            LOGFATAL("can't parser xml file");
-            break;
-        }
-        m_root=m_doc.firstChildElement(TAGNAME_ROOT);
-        if(m_root.isNull())
-        {
-            LOGFATAL("invalid xml file,without TAGNAME_ROOT");
-            break;
-        }
-        File.close();
-        bret=true;
-    }while(false);
-    if(!bret)
-    {
-        Close();
-    }
-
-    return bret;
-}
 
 QString HostsXml::GetFileName()
 {
@@ -457,6 +422,80 @@ bool HostsXml::DelDomainNode(QString& domain,QString& ipv4addr,QString& GroupNam
     return true;
 }
 
+void HostsXml::AddComputerHostName()
+{
+
+    char CHostName[MAX_DOMAIN_LEN];
+    memset(CHostName,0,MAX_DOMAIN_LEN);
+
+    if(!gethostname(CHostName,MAX_DOMAIN_LEN-1))
+    {
+        //检查是否是有效的主机名
+        QString QName=QString(CHostName);
+        if(!Util::IsValidDomainStr(QName))
+        {
+            return;
+        }
+
+        QString IpStr=QString(LOCAL_IP);
+        QString GroupStr=QString(GROUP_DEFAULT_NAME);
+        QDomElement QDomainElement=FindDomainElement(IpStr,GroupStr,QName);
+        if(!QDomainElement.isNull())
+        {
+            return;
+        }
+        AddNewDomainElement(IpStr,QName,GroupStr);
+    }
+
+}
+
+bool HostsXml::Open(QString& fileName)
+{
+    Close();
+    m_modified=false;
+    m_isnewfile=false;
+    m_isopen=true;
+    m_filename=fileName;
+    bool bret=false;
+    do
+    {
+        QFile File(fileName);
+        if(!File.open(QIODevice::ReadWrite))
+        {
+            LOGFATAL("can't open file to read");
+            break;
+        }
+        if(File.size()>=MAX_XML_FILESIZE)
+        {
+            LOGFATAL("File.size()>=MAX_XML_FILESIZE");
+            break;
+        }
+        if(!m_doc.setContent(&File))
+        {
+            LOGFATAL("can't parser xml file");
+            break;
+        }
+        m_root=m_doc.firstChildElement(TAGNAME_ROOT);
+        if(m_root.isNull())
+        {
+            LOGFATAL("invalid xml file,without TAGNAME_ROOT");
+            break;
+        }
+        File.close();
+        bret=true;
+    }while(false);
+    if(!bret)
+    {
+        Close();
+    }
+    else
+    {
+        AddComputerHostName();
+    }
+
+
+    return bret;
+}
 
 bool HostsXml::Create()
 {
@@ -464,7 +503,7 @@ bool HostsXml::Create()
     //创建根元素 <hosts></hosts>
     m_root=m_doc.createElement(TAGNAME_ROOT);
     m_doc.appendChild(m_root);
-    QString ipaddr=QString("127.0.0.1");
+    QString ipaddr=QString(LOCAL_IP);
     QString ipdesc=QString::fromLocal8Bit("本机地址");
     QDomElement IpNode=IAddNewIpNodeElement(ipaddr,ipdesc);
     QString gname=QString::fromLocal8Bit(GROUP_DEFAULT_NAME);
@@ -472,6 +511,10 @@ bool HostsXml::Create()
     IAddNewDomainElement(IpNode,domain,gname);
     domain=QString("ubuntu");
     IAddNewDomainElement(IpNode,domain,gname);
+
+
+    AddComputerHostName();
+
     m_isopen=true;
     m_modified=true;
     m_isnewfile=true;
