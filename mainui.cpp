@@ -534,7 +534,7 @@ void MainUi::TreeViewRightClick(const QPoint & pos)
 
     if(ItemType==NODETYPE_ROOT)
     {
-        StrAdd=QString::fromLocal8Bit("添加IP节点");
+        StrAdd=QString::fromLocal8Bit("添加节点");
         StrDel=QString::fromLocal8Bit("删除全部");
         //添加新的IP节点
         //删除所有节点
@@ -544,7 +544,7 @@ void MainUi::TreeViewRightClick(const QPoint & pos)
         //添加新的分组
         //删除当前IP
         StrAdd=QString::fromLocal8Bit("添加分组");
-        StrDel=QString::fromLocal8Bit("删除该IP数据");
+        StrDel=QString::fromLocal8Bit("删除该节点");
         StrModify=QString::fromLocal8Bit("编辑");
     }
     else if(ItemType==NODETYPE_GROUP)
@@ -803,20 +803,7 @@ void MainUi::OpenHostsClicked()
 }
 
 
-//搜索域名按钮
-void MainUi::SearchDomainClicked()
-{
-    LOGDEBUG("SearchDomainClicked");
-    if(Util::IsValidIpv4Str(ui->SearchDomainLineEdit->text()))
-    {
-        printf("valid ip");
-    }
-    else
-    {
-        printf("invalid ip");
-    }
 
-}
 
 //增加域名
 void MainUi::AddDomainClicked()
@@ -1140,20 +1127,80 @@ void MainUi::CopyToSystemClicked()
     }
 }
 
+void MainUi::TriggerSearchDomain(const QString & dstr)
+{
+    if(dstr.length()==0)
+    {
+        return;
+    }
+
+    if(!m_xml.IsOpen())
+    {
+        return;
+    }
+
+    if(!m_selected_tree_item.isValid()||!ListModel.rowCount())
+    {
+        ui->HostsTreeView->clicked(TreeModel.index(0,0));
+    }
+
+    int total=ListModel.rowCount();
+
+    QStandardItem* MatchItem=NULL;
+    for(int i=0;i<total;i++)
+    {
+        QStandardItem* curItem=ListModel.item(i);
+        QString curStr=curItem->text();
+        if(curStr.contains(dstr,Qt::CaseInsensitive))
+        {
+            MatchItem=curItem;
+            break;
+        }
+    }
+    if(!MatchItem)
+    {
+        return;
+    }
+
+    QModelIndex index=ListModel.indexFromItem(MatchItem);
+    ui->DomainlistView->setCurrentIndex(index);
+
+
+
+
+
+
+}
+
 //搜索框编辑字符
 void MainUi::SearchDomainTextEdited(const QString& text)
 {
     Q_UNUSED(text);
-    /*
     LOGDEBUG("SearchDomainTextEdited");
     if(!Util::IsValidDomainStr(text))
     {
         LOGDEBUG("Invalid Doamin Str");
+        return;
     }
-    else
+    if(text.length()<2)
     {
+        return;
+    }
+    TriggerSearchDomain(text);
 
-    }*/
+}
+
+//搜索域名按钮
+void MainUi::SearchDomainClicked()
+{
+    LOGDEBUG("SearchDomainClicked");
+    QString sdomain=ui->SearchDomainLineEdit->text();
+    if(!Util::IsValidDomainStr(sdomain))
+    {
+        return;
+    }
+
+    TriggerSearchDomain(sdomain);
 }
 
 bool MainUi::UpdateListView(int NodeType,QString& ipaddr,QString& groupname)

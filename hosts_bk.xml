@@ -1,13 +1,14 @@
 <hosts>
   <ipnode desc="本机地址" ip="127.0.0.1">
-    <group name="default" desc="默认分组">
+    <group desc="默认分组" name="default">
       <domain>localhost</domain>
       <domain>ubuntu</domain>
+      <domain>infinite</domain>
     </group>
   </ipnode>
   <ipnode desc="谷歌" ip="220.255.2.153">
-    <group name="default" desc="默认分组"/>
-    <group name="googlecommon" desc="谷歌常用">
+    <group desc="默认分组" name="default"/>
+    <group desc="谷歌常用" name="googlecommon">
       <domain>goo.gl</domain>
       <domain>google.com</domain>
       <domain>google.com.hk</domain>
@@ -125,7 +126,7 @@
       <domain>doc-0k-7o-docs.googleusercontent.com</domain>
       <domain>boomworks.googlecode.com</domain>
     </group>
-    <group name="android" desc="android">
+    <group desc="android" name="android">
       <domain>www.android.com</domain>
       <domain>developer.android.com</domain>
       <domain>android.com</domain>
@@ -151,7 +152,7 @@
       <domain>9.bp.blogspot.com</domain>
       <domain>source.android.com</domain>
     </group>
-    <group name="youtube" desc="youtube">
+    <group desc="youtube" name="youtube">
       <domain>www.youtube.com</domain>
       <domain>youtube.com</domain>
       <domain>yt1.ggpht.com</domain>
@@ -177,7 +178,7 @@
       <domain>k.ytimg.com</domain>
       <domain>s.youtube.com</domain>
     </group>
-    <group name="googleplugin" desc="谷歌插件">
+    <group desc="谷歌插件" name="googleplugin">
       <domain>chrome.google.com</domain>
       <domain>lh.googleusercontent.com</domain>
       <domain>lh0.googleusercontent.com</domain>
@@ -195,7 +196,7 @@
       <domain>santatracker.google.com</domain>
       <domain>www.santatracker.google.com</domain>
     </group>
-    <group name="Gmail" desc="Gmail">
+    <group desc="Gmail" name="Gmail">
       <domain>gmail-imap.l.google.com</domain>
       <domain>gmail-pop.l.google.com</domain>
       <domain>gmail-smtp.l.google.com</domain>
@@ -228,7 +229,7 @@
     </group>
   </ipnode>
   <ipnode desc="facebook" ip="31.13.78.42">
-    <group name="default" desc="默认分组">
+    <group desc="默认分组" name="default">
       <domain>www.facebook.com</domain>
       <domain>ssl.facebook.com</domain>
       <domain>api.facebook.com</domain>
@@ -330,7 +331,7 @@
     </group>
   </ipnode>
   <ipnode desc="维基百科" ip="198.35.26.96">
-    <group name="default" desc="默认分组">
+    <group desc="默认分组" name="default">
       <domain>zh.wikipedia.org</domain>
       <domain>zh.m.wikipedia.org</domain>
       <domain>www.wikipedia.org</domain>
@@ -360,9 +361,9 @@
       <domain>www.wikinews.org</domain>
     </group>
   </ipnode>
-  <ipnode desc="广告节点" ip="101.226.103.106">
-    <group name="default" desc="默认分组"/>
-    <group name="maybenotads" desc="容易误伤的屏蔽地址">
+  <ipnode desc="广告节点" ip="220.181.57.217">
+    <group desc="默认分组" name="default"/>
+    <group desc="容易误伤的屏蔽地址" name="maybenotads">
       <domain>images.sohu.com</domain>
       <domain>m.yes.youku.com</domain>
       <domain>rc.qzone.qq.com</domain>
@@ -378,7 +379,7 @@
       <domain>d9.sina.com.cn</domain>
       <domain>img1.gtimg.com</domain>
     </group>
-    <group name="baiduads" desc="百度广告">
+    <group desc="百度广告" name="baiduads">
       <domain>cbjs.baidu.com</domain>
       <domain>cpro.baidu.com</domain>
       <domain>wangmeng.baidu.com</domain>
@@ -401,7 +402,7 @@
       <domain>click.bes.baidu.com</domain>
       <domain>s.crpo.baidu.com</domain>
     </group>
-    <group name="otherads" desc="其他广告">
+    <group desc="其他广告" name="otherads">
       <domain>s.clkservice.youdao.com</domain>
       <domain>strip.taobaocdn.com</domain>
       <domain>impservice.union.youdao.com</domain>
@@ -431,8 +432,10 @@
       <domain>wmt.qtmojo.com</domain>
       <domain>s.cr-nielsen.com</domain>
       <domain>do.apkdo.com</domain>
+      <domain>img.feitian001.com</domain>
+      <domain>c.f1zd.com</domain>
     </group>
-    <group name="googlleads" desc="谷歌广告">
+    <group desc="谷歌广告" name="googlleads">
       <domain>www.googleadservices.com</domain>
       <domain>googleadservices.com</domain>
       <domain>googleads.g.doubleclick.net</domain>
@@ -441,7 +444,7 @@
       <domain>adclick.g.doubleclick.net</domain>
       <domain>tpc.googlesyndication.com</domain>
     </group>
-    <group name="qqads" desc="qq广告">
+    <group desc="qq广告" name="qqads">
       <domain>a.gdt.qq.com</domain>
       <domain>b.gdt.qq.com</domain>
       <domain>c.gdt.qq.com</domain>
@@ -494,7 +497,7 @@
       <domain>py2.qlogo.cn</domain>
       <domain>ex.qq.com</domain>
     </group>
-    <group name="videoads" desc="视频广告">
+    <group desc="视频广告" name="videoads">
       <domain>atm.youku.com</domain>
       <domain>msg.video.qiyi.com</domain>
       <domain>afp.qiyi.com</domain>
@@ -545,7 +548,7 @@
       <domain>mpv.sandai.net</domain>
       <domain>m.yes.youku.com</domain>
     </group>
-    <group name="jdtaobaoads" desc="京东淘宝广告">
+    <group desc="京东淘宝广告" name="jdtaobaoads">
       <domain>ccc.x.jd.com</domain>
       <domain>x.jd.com</domain>
       <domain>strip.taobaocdn.com</domain>
@@ -557,7 +560,7 @@
       <domain>p.tanx.com</domain>
       <domain>img11.360buyimg.com</domain>
     </group>
-    <group name="unionads" desc="联盟广告">
+    <group desc="联盟广告" name="unionads">
       <domain>api.so.lianmeng.360.cn</domain>
       <domain>s.lianmeng.360.cn</domain>
       <domain>g.fastapi.net</domain>
@@ -638,7 +641,6 @@
       <domain>vip4.rwjfs.com</domain>
       <domain>vip5.rwjfs.com</domain>
       <domain>vip6.rwjfs.com</domain>
-      <domain>rec.g.163.com/</domain>
       <domain>dev.visualwebsiteoptimizer.com</domain>
       <domain>dvsour.china.com</domain>
       <domain>i.adsame.com</domain>

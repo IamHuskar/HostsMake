@@ -89,7 +89,8 @@ protected slots:
     //搜索框编辑字符
     void SearchDomainTextEdited(const QString & text);
 
-
+    //triggerSearchDomian
+    void TriggerSearchDomain(const QString & dstr);
 
 
     //对TreeView当中的某一项进行单击。双击事件

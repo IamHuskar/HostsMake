@@ -133,6 +133,11 @@ QValidator::State	DomainValidator::validate(QString & input, int & pos) const
 {
     input=input.trimmed();
     QValidator::State state=QValidator::Acceptable;
+    if(!input.length())
+    {
+        return state;
+    }
+
     if(!Util::IsValidDomainStr(input))
     {
         pos=pos;
