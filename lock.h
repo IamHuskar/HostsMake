@@ -1,6 +1,7 @@
 ﻿#ifndef _COMMON_LOCK_H_
 #define _COMMON_LOCK_H_
 #ifdef _WIN32
+#include <winsock2.h>
 #include <Windows.h>
 
 

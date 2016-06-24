@@ -427,7 +427,8 @@ void HostsXml::AddComputerHostName()
 
     char CHostName[MAX_DOMAIN_LEN];
     memset(CHostName,0,MAX_DOMAIN_LEN);
-
+#ifdef _WIN32
+#else
     if(!gethostname(CHostName,MAX_DOMAIN_LEN-1))
     {
         //检查是否是有效的主机名
@@ -446,7 +447,7 @@ void HostsXml::AddComputerHostName()
         }
         AddNewDomainElement(IpStr,QName,GroupStr);
     }
-
+#endif
 }
 
 bool HostsXml::Open(QString& fileName)
