@@ -361,7 +361,7 @@
       <domain>www.wikinews.org</domain>
     </group>
   </ipnode>
-  <ipnode desc="广告节点" ip="220.181.57.217">
+  <ipnode desc="广告节点" ip="180.76.141.217">
     <group desc="默认分组" name="default"/>
     <group desc="容易误伤的屏蔽地址" name="maybenotads">
       <domain>images.sohu.com</domain>
