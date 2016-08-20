@@ -434,6 +434,7 @@
       <domain>do.apkdo.com</domain>
       <domain>img.feitian001.com</domain>
       <domain>c.f1zd.com</domain>
+      <domain>55336.5ip9.com</domain>
     </group>
     <group desc="谷歌广告" name="googlleads">
       <domain>www.googleadservices.com</domain>
@@ -496,6 +497,8 @@
       <domain>py.qlogo.cn</domain>
       <domain>py2.qlogo.cn</domain>
       <domain>ex.qq.com</domain>
+      <domain>imgcache.qq.com</domain>
+      <domain>vpic.video.qq.com</domain>
     </group>
     <group desc="视频广告" name="videoads">
       <domain>atm.youku.com</domain>
