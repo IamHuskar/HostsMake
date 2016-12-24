@@ -6,7 +6,7 @@
       <domain>infinite</domain>
     </group>
   </ipnode>
-  <ipnode desc="谷歌" ip="220.255.2.153">
+  <ipnode desc="谷歌" ip="61.91.161.217">
     <group desc="默认分组" name="default"/>
     <group desc="谷歌常用" name="googlecommon">
       <domain>goo.gl</domain>
@@ -497,7 +497,6 @@
       <domain>py.qlogo.cn</domain>
       <domain>py2.qlogo.cn</domain>
       <domain>ex.qq.com</domain>
-      <domain>imgcache.qq.com</domain>
       <domain>vpic.video.qq.com</domain>
     </group>
     <group desc="视频广告" name="videoads">
