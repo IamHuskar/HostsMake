@@ -1,12 +1,12 @@
 <hosts>
-  <ipnode desc="本机地址" ip="127.0.0.1">
+  <ipnode ip="127.0.0.1" desc="本机地址">
     <group desc="默认分组" name="default">
       <domain>localhost</domain>
       <domain>ubuntu</domain>
       <domain>infinite</domain>
     </group>
   </ipnode>
-  <ipnode desc="谷歌" ip="61.91.161.217">
+  <ipnode ip="61.91.161.217" desc="谷歌">
     <group desc="默认分组" name="default"/>
     <group desc="谷歌常用" name="googlecommon">
       <domain>goo.gl</domain>
@@ -125,6 +125,10 @@
       <domain>docs.google.com</domain>
       <domain>doc-0k-7o-docs.googleusercontent.com</domain>
       <domain>boomworks.googlecode.com</domain>
+      <domain>images.google.com</domain>
+      <domain>images.l.google.com</domain>
+      <domain>images.google.com.hk</domain>
+      <domain>images.l.google.com.hk</domain>
     </group>
     <group desc="android" name="android">
       <domain>www.android.com</domain>
@@ -228,7 +232,7 @@
       <domain>drive.google.com</domain>
     </group>
   </ipnode>
-  <ipnode desc="facebook" ip="31.13.78.42">
+  <ipnode ip="31.13.78.42" desc="facebook">
     <group desc="默认分组" name="default">
       <domain>www.facebook.com</domain>
       <domain>ssl.facebook.com</domain>
@@ -330,7 +334,7 @@
       <domain>profile.ak.facebook.com</domain>
     </group>
   </ipnode>
-  <ipnode desc="维基百科" ip="198.35.26.96">
+  <ipnode ip="198.35.26.96" desc="维基百科">
     <group desc="默认分组" name="default">
       <domain>zh.wikipedia.org</domain>
       <domain>zh.m.wikipedia.org</domain>
@@ -361,7 +365,7 @@
       <domain>www.wikinews.org</domain>
     </group>
   </ipnode>
-  <ipnode desc="广告节点" ip="180.76.141.217">
+  <ipnode ip="127.1.1.1" desc="广告节点">
     <group desc="默认分组" name="default"/>
     <group desc="容易误伤的屏蔽地址" name="maybenotads">
       <domain>images.sohu.com</domain>
@@ -435,6 +439,8 @@
       <domain>img.feitian001.com</domain>
       <domain>c.f1zd.com</domain>
       <domain>55336.5ip9.com</domain>
+      <domain>ads.csdn.net</domain>
+      <domain>mpb2.iteye.com</domain>
     </group>
     <group desc="谷歌广告" name="googlleads">
       <domain>www.googleadservices.com</domain>
